@@ -143,6 +143,7 @@
                 <entry key="title" value="position" />
                 <entry key="mobile" value="mobile"/>
                 <entry key="telephoneNumber" value="telephoneNumber"/>
+                <entry key="homePhone" value="pincode"/>
             </map>
         </property>
     </bean>
@@ -275,12 +276,40 @@
         <entry key="sex" value="sex" />
         <entry key="site" value="building" />
         <entry key="title" value="position" />
+        <entry key="homePhone" value="pincode"/>
     </util:map>
 
     <bean id="serviceRegistryDao" class="org.jasig.cas.services.JsonServiceRegistryDao"
           c:configDirectory="${service.registry.config.location:classpath:services}" />
 
     <bean id="auditTrailManager" class="org.jasig.inspektr.audit.support.Slf4jLoggingAuditTrailManager" />
+
+    <!--<bean id="loginThrottle"-->
+          <!--class="org.jasig.cas.web.support.InMemoryThrottledSubmissionByIpAddressHandlerInterceptorAdapter"-->
+          <!--p:failureRangeInSeconds="3"-->
+          <!--p:failureThreshold="1" />-->
+    <bean id="loginThrottle"
+          class="org.jasig.cas.nhnent.web.support.LdapThrottledSubmissionByUsernameHandlerInterceptorAdapter"
+          c:ldapAttributeIO-ref="ldapAttributeIO"
+          c:memcachedIO-ref="memcachedIO"/>
+    <bean id="ldapAttributeIO"
+          class="org.jasig.cas.nhnent.util.LdapAttributeIO"
+          p:baseDn="${ldap.baseDn}"
+          p:userFileter="${ldap.authn.searchFilter}" />
+    <bean id="memcachedIO"
+          class="org.jasig.cas.nhnent.util.MemcachedIO"
+          c:client-ref="memcachedClient"/>
+
+
+    <!--<bean id="loginThrottleJobDetail"-->
+          <!--class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"-->
+          <!--p:targetObject-ref="loginThrottle"-->
+          <!--p:targetMethod="decrementCounts"/>-->
+    <!--<bean id="loginThrottleTrigger"-->
+          <!--class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean"-->
+          <!--p:jobDetail-ref="loginThrottleJobDetail"-->
+          <!--p:startDelay="1000"-->
+          <!--p:repeatInterval="10000"/>-->
 
     <bean id="healthCheckMonitor" class="org.jasig.cas.monitor.HealthCheckMonitor" p:monitors-ref="monitorsList" />
 

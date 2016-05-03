@@ -128,11 +128,6 @@ public class NhnAuthenticationViaFormAction {
 
         Event event = createTicketGrantingTicket(context, credential, messageContext);
 
-        // Siteminder 와의 연동
-        NhnLegacyAuthenticationMediator authMediator = new NhnLegacyAuthenticationMediator(context, credential);
-        authMediator.setLegacyInfo(this.legacyAuthUrl, this.legacyTargetUrl, this.legacyAgentName, this.isSelfSigned);
-        authMediator.run();
-
         return event;
     }
 
@@ -235,6 +230,12 @@ public class NhnAuthenticationViaFormAction {
             if (addWarningMessagesToMessageContextIfNeeded(tgt, messageContext)) {
                 return newEvent(SUCCESS_WITH_WARNINGS);
             }
+
+            // Siteminder 와의 연동
+            NhnLegacyAuthenticationMediator authMediator = new NhnLegacyAuthenticationMediator(context, credential);
+            authMediator.setLegacyInfo(this.legacyAuthUrl, this.legacyTargetUrl, this.legacyAgentName, this.isSelfSigned);
+            authMediator.run();
+
             return newEvent(SUCCESS);
         } catch (final AuthenticationException e) {
             return newEvent(AUTHENTICATION_FAILURE, e);

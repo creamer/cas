@@ -1385,6 +1385,7 @@
         <module>cas-server-extension-clearpass</module>
         <module>cas-management-webapp</module>
         <module>cas-server-support-rest</module>
+        <module>cas-server-nhnent-support</module>
     </modules>
 
     <reporting>

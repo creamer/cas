@@ -1,0 +1,10 @@
+{
+  "@class" : "org.jasig.cas.services.RegexRegisteredService",
+  "id" : 4,
+  "description" : "오태겸 블로그",
+  "serviceId" : "http://ruaa.me",
+  "name" : "Ruaa.me",
+  "theme" : "apereo",
+  "evaluationOrder" : 0
+}
+

@@ -42,8 +42,7 @@
           p:servers="${memcached.servers}"
           p:protocol="${memcached.protocol}"
           p:locatorType="${memcached.locatorType}"
-          p:failureMode="${memcached.failureMode}"
-          p:transcoder-ref="kryoTranscoder">
+          p:failureMode="${memcached.failureMode}">
         <property name="hashAlg">
             <util:constant static-field="net.spy.memcached.DefaultHashAlgorithm.${memcached.hashAlgorithm}" />
         </property>
@@ -51,8 +50,7 @@
 
     <bean id="kryoTranscoder"
           class="org.jasig.cas.ticket.registry.support.kryo.KryoTranscoder"
-          init-method="initialize"
-          c:initialBufferSize="8192" />
+          init-method="initialize" />
 
     <!--Quartz -->
     <!-- TICKET REGISTRY CLEANER -->
