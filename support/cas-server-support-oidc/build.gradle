@@ -1,0 +1,11 @@
+description = "Apereo CAS Server OpenID Connect Support"
+dependencies {
+    
+    compile project(":support:cas-server-support-oauth-webflow")
+    compile project(":support:cas-server-support-oidc-core")
+    implementation libraries.jose4j
+    compileOnly project(":support:cas-server-support-cookie")
+    compileOnly project(":core:cas-server-core-webflow")
+    testImplementation project(":core:cas-server-core-util")
+    
+}

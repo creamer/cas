@@ -1,4 +1,5 @@
 #!/bin/bash
+<<<<<<< HEAD
 #
 # Licensed to Apereo under one or more contributor license
 # agreements. See the NOTICE file distributed with this work
@@ -18,6 +19,8 @@
 # under the License.
 #
 
+=======
+>>>>>>> 628ba803f8075af6c61ffa1757851402b850ad18
 echo -e "Building branch: ${TRAVIS_BRANCH}"
 echo -e "Build directory: ${TRAVIS_BUILD_DIR}"
 echo -e "Build id: ${TRAVIS_BUILD_ID}"
