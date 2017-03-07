@@ -28,12 +28,12 @@
             <PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n"/>
         </Console>
         <RollingFile name="file" fileName="cas.log" append="true"
-                     filePattern="cas-%d{yyyy-MM-dd-HH}-%i.log">
+                     filePattern="cas-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout pattern="%d %p [%c] - %m%n"/>
             <Policies>
                 <OnStartupTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="10 MB"/>
-                <TimeBasedTriggeringPolicy />
+                <TimeBasedTriggeringPolicy interval="1" />
             </Policies>
         </RollingFile>
         <RollingFile name="perfFileAppender" fileName="perfStats.log" append="true"

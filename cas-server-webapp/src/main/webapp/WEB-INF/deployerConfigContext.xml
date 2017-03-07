@@ -144,6 +144,7 @@
                 <entry key="mobile" value="mobile"/>
                 <entry key="telephoneNumber" value="telephoneNumber"/>
                 <entry key="homePhone" value="pincode"/>
+                <entry key="extention01" value="corpCode"/>
             </map>
         </property>
     </bean>
