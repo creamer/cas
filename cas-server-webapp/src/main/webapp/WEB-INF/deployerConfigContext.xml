@@ -301,6 +301,8 @@
           class="org.jasig.cas.nhnent.util.MemcachedIO"
           c:client-ref="memcachedClient"/>
 
+    <bean id="referrerCheckInterceptor" class="org.jasig.cas.nhnent.web.interceptor.ReferrerCheckInterceptor" />
+
 
     <!--<bean id="loginThrottleJobDetail"-->
           <!--class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"-->

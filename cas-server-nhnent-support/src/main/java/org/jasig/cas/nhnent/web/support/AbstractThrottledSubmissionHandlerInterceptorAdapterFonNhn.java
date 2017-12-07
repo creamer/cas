@@ -84,7 +84,7 @@ public abstract class AbstractThrottledSubmissionHandlerInterceptorAdapterFonNhn
             request.setAttribute(WebUtils.CAS_ACCESS_DENIED_REASON, "screen.blocked.message");
 
             String userName = request.getParameter(getUsernameParameter());
-            response.sendRedirect(String.format("http://im.nhnent.com/selfservice/passwd/force?SMENC=UTF-8&USERNAME=%s&SMAUTHREASON=24", userName));
+            response.sendRedirect(String.format("https://imp.nhnent.com/selfservice/passwd/force?SMENC=UTF-8&USERNAME=%s&SMAUTHREASON=24", userName));
             return false;
         }
 
